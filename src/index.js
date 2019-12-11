@@ -1,12 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { App as WithReduxApp } from "./WithRedux";
+import { App as Without } from "./Without";
+import { App as WithContext } from "./WithContext";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import { Layout } from "./styles";
+
+const app = (
+    <Layout>
+        <WithReduxApp />
+        <WithContext />
+        <Without />
+    </Layout>
+);
+
+ReactDOM.render(app, document.getElementById("root"));
